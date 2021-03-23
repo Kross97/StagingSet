@@ -1,14 +1,28 @@
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import styled from 'styled-components';
 import backgroundImage from '../static/BackGroundMain.svg';
 import {ReactComponent as LogoStaging } from "../static/LogoStaging.svg";
 import {ReactComponent as MainText } from "../static/MainText.svg";
 
 export const MenuHeaderBlock = () => {
+    const [isHeaderFixed, setHeaderFixed] = useState<boolean>(false);
+
+    useEffect(() => {
+        const body = document.querySelector('body');
+        // @ts-ignore
+        body.onscroll = () => {
+            if(window.pageYOffset !== 0) {
+                setHeaderFixed(true);
+            } else {
+                setHeaderFixed(false);
+            }
+        };
+    }, []);
+
     return (
             <ContainerMain>
                <img src={backgroundImage} />
-               <Header>
+               <Header isHeaderFixed={isHeaderFixed}>
                    <LogoStaging />
                    <Navigation>
                        <ButtonNav>Home</ButtonNav>
@@ -40,7 +54,7 @@ const ContainerMain = styled.div`
   }
   
   & > svg {
-    margin-left: 10vw;
+    margin-left: 15%;
   }
 `;
 
@@ -49,15 +63,21 @@ const Navigation = styled.div`
   column-gap: 60px;
 `;
 
-const Header = styled.header`
+const Header = styled.header<{ isHeaderFixed: boolean }>`
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-top: 31px;
   align-items: center;
+  padding: 31px 15%;
+  
+  background-color: ${({ isHeaderFixed }) => isHeaderFixed ? '#fff' : 'transparent'};
+  & > svg {
+    fill: ${({ isHeaderFixed }) => isHeaderFixed ? '#000' : '#fff'};
+  }
 `;
 
 const ButtonNav = styled.button`
@@ -82,7 +102,12 @@ const ButtonContacts = styled.button`
   line-height: 110%;
   background-color: #fff;
   color: #000000;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   padding: 18px 35px;
+  &:hover {
+    border-color: #fff;
+    color: #fff;
+    background-color: #000;
+  }
 `;
