@@ -22,7 +22,7 @@ export const InspiriesBlock = () => {
 };
 
 const ContainerInspiries = styled.div`
-  height: 50vh;
+  padding: 101px 0;
   background-color: #fff;
   display: flex;
   justify-content: space-around;

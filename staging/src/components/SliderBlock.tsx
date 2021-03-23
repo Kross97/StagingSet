@@ -7,7 +7,10 @@ import linesGroup from '../static/LinesGroup.svg';
 export const SliderBlock = () => {
     return (
         <ContainerSlider>
-            <Slider/>
+            <Slider>
+                <ImageDiv src={roomBefore} />
+                <ImageDiv src={roomAfter} />
+            </Slider>
         </ContainerSlider>
     );
 };
@@ -19,12 +22,16 @@ const ContainerSlider = styled.div`
   align-items: center;
 `;
 
+const ImageDiv = styled.div<{ src: string }>`
+  width: 50%;
+  height: 300px;
+  background-size: cover;
+  background: url(${({ src }) => src}) no-repeat;
+`;
+
 const Slider = styled.div`
-  position: relative;
-  flex-basis: 75%;
-  height: 48%;
-  background: url(${roomBefore}) no-repeat 0%, url(${roomAfter}) no-repeat 100%;
-  background-size: 49.8%, 49.8%;
+  display: flex;
+  width: 100%;
   
   &:before {
     content: '';
@@ -33,7 +40,7 @@ const Slider = styled.div`
     bottom: 0;
     left: 0;
     background-size: cover;
-    width: 18%;
-    height: 14%;
+    width: 300px;
+    height: 116px;
   }
 `;

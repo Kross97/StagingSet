@@ -22,17 +22,19 @@ export const MenuHeaderBlock = () => {
     return (
             <ContainerMain>
                <img src={backgroundImage} />
-               <Header isHeaderFixed={isHeaderFixed}>
-                   <LogoStaging />
-                   <Navigation>
-                       <ButtonNav>Home</ButtonNav>
-                       <ButtonNav>About</ButtonNav>
-                       <ButtonNav>Work</ButtonNav>
-                       <ButtonNav>Service</ButtonNav>
-                       <ButtonContacts>Contact us</ButtonContacts>
-                   </Navigation>
-               </Header>
-                <MainText />
+               <Blyaaa>
+                   <Header isHeaderFixed={isHeaderFixed}>
+                       <LogoStaging />
+                       <Navigation>
+                           <ButtonNav>Home</ButtonNav>
+                           <ButtonNav>About</ButtonNav>
+                           <ButtonNav>Work</ButtonNav>
+                           <ButtonNav>Service</ButtonNav>
+                           <ButtonContacts>Contact us</ButtonContacts>
+                       </Navigation>
+                   </Header>
+                   <MainText />
+               </Blyaaa>
             </ContainerMain>
     );
 };
@@ -52,15 +54,14 @@ const ContainerMain = styled.div`
     position: absolute;
     z-index: -1;
   }
-  
-  & > svg {
-    margin-left: 15%;
-  }
 `;
 
-const Navigation = styled.div`
- display: flex;
-  column-gap: 60px;
+const Navigation = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 0.7;
+  column-gap: 10px;
 `;
 
 const Header = styled.header<{ isHeaderFixed: boolean }>`
@@ -72,7 +73,7 @@ const Header = styled.header<{ isHeaderFixed: boolean }>`
   justify-content: space-between;
   padding-top: 31px;
   align-items: center;
-  padding: 31px 15%;
+  padding: 31px 0;
   
   background-color: ${({ isHeaderFixed }) => isHeaderFixed ? '#fff' : 'transparent'};
   & > svg {
@@ -80,7 +81,8 @@ const Header = styled.header<{ isHeaderFixed: boolean }>`
   }
 `;
 
-const ButtonNav = styled.button`
+const ButtonNav = styled.a`
+  display: inline-block;
   background-color: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.5);
@@ -96,13 +98,14 @@ const ButtonNav = styled.button`
   }
 `;
 
-const ButtonContacts = styled.button`
+const ButtonContacts = styled.a`
+  transition: 1s ease;
+  display: inline-block;
   font-weight: 600;
   font-size: 18px;
-  line-height: 110%;
   background-color: #fff;
   color: #000000;
-  border: 1px solid transparent;
+  border: 1px solid #fff;
   cursor: pointer;
   padding: 18px 35px;
   &:hover {
@@ -110,4 +113,12 @@ const ButtonContacts = styled.button`
     color: #fff;
     background-color: #000;
   }
+`;
+
+const Blyaaa = styled.div`
+  outline: 1px solid #fff;
+  max-width: 1240px;
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 auto;
 `;
