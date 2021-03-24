@@ -25,11 +25,11 @@ export const MenuHeaderBlock = () => {
                    <Header isHeaderFixed={isHeaderFixed}>
                        <LogoStaging />
                        <Navigation>
-                           <ButtonNav>Home</ButtonNav>
-                           <ButtonNav>About</ButtonNav>
-                           <ButtonNav>Work</ButtonNav>
-                           <ButtonNav>Service</ButtonNav>
-                           <ButtonContacts>Contact us</ButtonContacts>
+                           <ButtonNav isHeaderFixed={isHeaderFixed}>Home</ButtonNav>
+                           <ButtonNav isHeaderFixed={isHeaderFixed}>About</ButtonNav>
+                           <ButtonNav isHeaderFixed={isHeaderFixed}>Work</ButtonNav>
+                           <ButtonNav isHeaderFixed={isHeaderFixed}>Service</ButtonNav>
+                           <ButtonContacts isHeaderFixed={isHeaderFixed}>Contact us</ButtonContacts>
                        </Navigation>
                    </Header>
                    <MainText>
@@ -99,7 +99,7 @@ const Header = styled.header<{ isHeaderFixed: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 31px 0;
+  padding: ${({ isHeaderFixed }) => isHeaderFixed ? '31px 12%' : '31px 0'};
   
   background-color: ${({ isHeaderFixed }) => isHeaderFixed ? '#fff' : 'transparent'};
   & > svg {
@@ -114,31 +114,31 @@ const HeaderContainer = styled.div`
   position: relative;
 `;
 
-const ButtonNav = styled.a`
+const ButtonNav = styled.a<{ isHeaderFixed: boolean}>`
   display: inline-block;
   background-color: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: ${({ isHeaderFixed }) => isHeaderFixed ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)'};
   cursor: pointer;
   font-weight: normal;
   font-size: 17px;
   line-height: 110%;
   
   &:hover {
-    color: #fff;
+    color: ${({ isHeaderFixed }) => isHeaderFixed ? '#81C98D' : '#fff'};
     text-decoration-line: underline;
-    text-decoration-color: #fff;
+    text-decoration-color: ${({ isHeaderFixed }) => isHeaderFixed ? '#81C98D' : '#fff'};
   }
 `;
 
-const ButtonContacts = styled.a`
+const ButtonContacts = styled.a<{ isHeaderFixed: boolean }>`
   transition: 1s ease;
   display: inline-block;
   font-weight: 600;
   font-size: 18px;
   background-color: #fff;
   color: #000000;
-  border: 1px solid #fff;
+  border: 1px solid ${({ isHeaderFixed }) => isHeaderFixed ? '#000' : '#fff'};
   cursor: pointer;
   padding: 18px 35px;
   &:hover {

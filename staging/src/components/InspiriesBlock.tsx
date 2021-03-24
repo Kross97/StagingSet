@@ -7,15 +7,18 @@ export const InspiriesBlock = () => {
         <ContainerInspiries>
             <TextContainer>
                 <TextAbout>About us</TextAbout>
-                <InspiriesText/>
+                <InspiriesTextContainer>
+                    <p>StagingSet</p>
+                    <p>Inspires buyers</p>
+                </InspiriesTextContainer>
             </TextContainer>
             <MainText>
-                We are a virtual staging company that inspires buyers, transforms listings and provides first class
-                service.
-                <br />
-                <br />
-                We are specifically known for our highly realistic images and tasteful design. As a global team, we are
-                always available for our clients 7 days a week to design, revise and deliver our projects.
+                <p>We are a virtual staging company that inspires buyers, transforms listings and provides first class
+                service.</p>
+                <p>
+                    We are specifically known for our highly realistic images and tasteful design. As a global team, we are
+                    always available for our clients 7 days a week to design, revise and deliver our projects.
+                </p>
             </MainText>
         </ContainerInspiries>
     );
@@ -26,7 +29,7 @@ const ContainerInspiries = styled.div`
   background-color: #fff;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const TextContainer = styled.div`
@@ -42,10 +45,29 @@ const TextAbout = styled.span`
   margin-bottom: 20px;
 `;
 
+const InspiriesTextContainer = styled.div`
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 120%;
+  color: #000;
+
+  & > p:last-child {
+   color: #81C98D;
+  }
+`;
+
 const MainText = styled.span`
   max-width: 39.6%;
   font-style: normal;
   font-weight: 300;
   font-size: 22px;
   line-height: 150%;
+  
+  & > p {
+    margin-bottom: 25px;
+  }
+  
+  & > p:last-child {
+    margin-bottom: 0;
+  }
 `;
