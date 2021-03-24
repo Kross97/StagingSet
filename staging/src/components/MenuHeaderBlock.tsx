@@ -77,7 +77,7 @@ const ContainerMain = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left center;
+    object-position: center center;
     position: absolute;
     z-index: -1;
   }
