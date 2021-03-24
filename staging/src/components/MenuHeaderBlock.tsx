@@ -2,7 +2,6 @@ import React, {useEffect, useRef, useState} from "react";
 import styled from 'styled-components';
 import backgroundImage from '../static/BackGroundMain.svg';
 import {ReactComponent as LogoStaging } from "../static/LogoStaging.svg";
-import {ReactComponent as MainText } from "../static/MainText.svg";
 
 export const MenuHeaderBlock = () => {
     const [isHeaderFixed, setHeaderFixed] = useState<boolean>(false);
@@ -22,7 +21,7 @@ export const MenuHeaderBlock = () => {
     return (
             <ContainerMain>
                <img src={backgroundImage} />
-               <Blyaaa>
+               <HeaderContainer className={'container'}>
                    <Header isHeaderFixed={isHeaderFixed}>
                        <LogoStaging />
                        <Navigation>
@@ -33,19 +32,47 @@ export const MenuHeaderBlock = () => {
                            <ButtonContacts>Contact us</ButtonContacts>
                        </Navigation>
                    </Header>
-                   <MainText />
-               </Blyaaa>
+                   <MainText>
+                       <UpText>Transform your listing with</UpText>
+                       <LogoUpText>Virtual</LogoUpText>
+                       <LogoDownText>staging</LogoDownText>
+                   </MainText>
+               </HeaderContainer>
             </ContainerMain>
     );
 };
+
+const UpText = styled.p`
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 150%;
+  color: #fff;
+`;
+
+const LogoUpText = styled.p`
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 110%;
+  letter-spacing: 0.02em;
+  color: #81C98D;
+`;
+
+const LogoDownText = styled(LogoUpText)`
+  color: #fff;
+`;
+
+const MainText = styled.div`
+  margin: auto 0;
+  & > p {
+    margin: 0;
+  }
+`;
 
 
 const ContainerMain = styled.div`
   height: 100vh;
   width: 100%;
-  position: relative;
   display: flex;
-  align-items: center;
   & > img {
     width: 100%;
     height: 100%;
@@ -65,13 +92,12 @@ const Navigation = styled.nav`
 `;
 
 const Header = styled.header<{ isHeaderFixed: boolean }>`
-  position: fixed;
-  left: 0;
-  right: 0;
+  position: ${({ isHeaderFixed }) => isHeaderFixed ? 'fixed' : 'absolute'};
   top: 0;
+  left: ${({ isHeaderFixed }) => isHeaderFixed ? '0' : '10px'};
+  right: ${({ isHeaderFixed }) => isHeaderFixed ? '0' : '10px'};
   display: flex;
   justify-content: space-between;
-  padding-top: 31px;
   align-items: center;
   padding: 31px 0;
   
@@ -79,6 +105,13 @@ const Header = styled.header<{ isHeaderFixed: boolean }>`
   & > svg {
     fill: ${({ isHeaderFixed }) => isHeaderFixed ? '#000' : '#fff'};
   }
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 `;
 
 const ButtonNav = styled.a`
@@ -113,12 +146,4 @@ const ButtonContacts = styled.a`
     color: #fff;
     background-color: #000;
   }
-`;
-
-const Blyaaa = styled.div`
-  outline: 1px solid #fff;
-  max-width: 1240px;
-  width: 100%;
-  padding: 0 10px;
-  margin: 0 auto;
 `;
