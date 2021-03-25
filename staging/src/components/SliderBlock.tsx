@@ -36,14 +36,16 @@ const Slider = styled.div`
   justify-content: space-between;
   flex-basis: 100%;
   
-  &:before {
-    content: '';
-    position: absolute;
-    background: url(${linesGroup}) no-repeat;
-    bottom: 0;
-    left: 0;
-    background-size: cover;
-    width: 300px;
-    height: 116px;
+  & > ${ImageDiv}:first-child {
+    &:before {
+      content: '';
+      position: absolute;
+      background: url(${linesGroup}) no-repeat;
+      bottom: -60px;
+      left: -115px;
+      background-size: contain;
+      width: 15%;
+      height: 12%;
+    }
   }
 `;
