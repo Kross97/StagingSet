@@ -94,6 +94,7 @@ const Navigation = styled.nav`
 const Header = styled.header<{ isHeaderFixed: boolean }>`
   position: ${({ isHeaderFixed }) => isHeaderFixed ? 'fixed' : 'absolute'};
   top: 0;
+  z-index: 2;
   left: ${({ isHeaderFixed }) => isHeaderFixed ? '0' : '10px'};
   right: ${({ isHeaderFixed }) => isHeaderFixed ? '0' : '10px'};
   display: flex;
