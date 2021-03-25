@@ -4,7 +4,7 @@ import {ReactComponent as InspiriesText} from "../static/InspiriesText.svg";
 
 export const InspiriesBlock = () => {
     return (
-        <ContainerInspiries>
+        <ContainerInspiries className={'container'}>
             <TextContainer>
                 <TextAbout>About us</TextAbout>
                 <InspiriesTextContainer>
@@ -25,10 +25,10 @@ export const InspiriesBlock = () => {
 };
 
 const ContainerInspiries = styled.div`
-  padding: 101px 0;
+  padding: 100px 0;
   background-color: #fff;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
 `;
 
