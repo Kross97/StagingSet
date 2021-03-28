@@ -23,14 +23,16 @@ export const MenuHeaderBlock = () => {
                <img src={backgroundImage} />
                <HeaderContainer className={'container'}>
                    <Header isHeaderFixed={isHeaderFixed}>
-                       <LogoStaging />
-                       <Navigation>
-                           <ButtonNav isHeaderFixed={isHeaderFixed}>Home</ButtonNav>
-                           <ButtonNav isHeaderFixed={isHeaderFixed}>About</ButtonNav>
-                           <ButtonNav isHeaderFixed={isHeaderFixed}>Work</ButtonNav>
-                           <ButtonNav isHeaderFixed={isHeaderFixed}>Service</ButtonNav>
-                           <ButtonContacts isHeaderFixed={isHeaderFixed}>Contact us</ButtonContacts>
-                       </Navigation>
+                       <Zaeb>
+                           <LogoStaging />
+                           <Navigation>
+                               <ButtonNav isHeaderFixed={isHeaderFixed}>Home</ButtonNav>
+                               <ButtonNav isHeaderFixed={isHeaderFixed}>About</ButtonNav>
+                               <ButtonNav isHeaderFixed={isHeaderFixed}>Work</ButtonNav>
+                               <ButtonNav isHeaderFixed={isHeaderFixed}>Service</ButtonNav>
+                               <ButtonContacts isHeaderFixed={isHeaderFixed}>Contact us</ButtonContacts>
+                           </Navigation>
+                       </Zaeb>
                    </Header>
                    <MainText>
                        <UpText>Transform your listing with</UpText>
@@ -41,6 +43,14 @@ export const MenuHeaderBlock = () => {
             </ContainerMain>
     );
 };
+
+const Zaeb = styled.div`
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  max-width: 1240px;
+  margin: 0 auto;
+`;
 
 const UpText = styled.p`
   font-weight: 300;
@@ -100,10 +110,10 @@ const Header = styled.header<{ isHeaderFixed: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${({ isHeaderFixed }) => isHeaderFixed ? '31px 12%' : '31px 0'};
+  padding: ${({ isHeaderFixed }) => isHeaderFixed ? '31px 0' : '31px 0'};
   
   background-color: ${({ isHeaderFixed }) => isHeaderFixed ? '#fff' : 'transparent'};
-  & > svg {
+  & >  div > svg {
     fill: ${({ isHeaderFixed }) => isHeaderFixed ? '#000' : '#fff'};
   }
 `;

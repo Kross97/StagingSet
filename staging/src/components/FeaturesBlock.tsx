@@ -51,6 +51,7 @@ export const FeaturesBlock = () => {
 const ContainerFeatures = styled.div`
   padding: 110px 0;
   background-color: #95D6A4;
+  clip-path: polygon(45% 8%, 70% 9%, 100% 0, 100% 100%, 68% 100%, 32% 100%, 0 100%, 0 0);
 `;
 
 const ContainerContent = styled.div``;

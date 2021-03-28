@@ -16,7 +16,7 @@ export const SliderBlock = () => {
 };
 
 const ContainerSlider = styled.div`
-  padding: 100px 10px;
+  padding: 100px 0;
   height: 41vw;
   display: flex;
   justify-content: center;
