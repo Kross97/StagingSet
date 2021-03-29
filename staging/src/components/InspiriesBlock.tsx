@@ -30,11 +30,18 @@ const ContainerInspiries = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  @media(max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
+  @media(max-width: 1000px) {
+    align-items: center;
+  }
 `;
 
 const TextAbout = styled.span`
@@ -53,6 +60,10 @@ const InspiriesTextContainer = styled.div`
 
   & > p:last-child {
    color: #81C98D;
+  }
+  @media(max-width: 1000px) {
+    text-align: center;
+    margin-bottom: 15%;
   }
 `;
 

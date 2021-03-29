@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import styled from 'styled-components';
-import backgroundImage from '../static/BackGroundMain.svg';
+import backgroundImage from '../static/BackGroundMain.jpg';
 import {ReactComponent as LogoStaging } from "../static/LogoStaging.svg";
 
 export const MenuHeaderBlock = () => {
@@ -23,7 +23,7 @@ export const MenuHeaderBlock = () => {
                <img src={backgroundImage} />
                <HeaderContainer className={'container'}>
                    <Header isHeaderFixed={isHeaderFixed}>
-                       <Zaeb>
+                       <Zaeb isHeaderFixed={isHeaderFixed}>
                            <LogoStaging />
                            <Navigation>
                                <ButtonNav isHeaderFixed={isHeaderFixed}>Home</ButtonNav>
@@ -44,12 +44,20 @@ export const MenuHeaderBlock = () => {
     );
 };
 
-const Zaeb = styled.div`
+const Zaeb = styled.div<{ isHeaderFixed: boolean }>`
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
   max-width: 1240px;
   margin: 0 auto;
+  align-items: center;
+  & > svg {
+    margin-left: ${({ isHeaderFixed }) => isHeaderFixed && '10px'};
+  }
+
+  & > nav {
+    margin-right: ${({ isHeaderFixed }) => isHeaderFixed && '10px'};
+  }
 `;
 
 const UpText = styled.p`

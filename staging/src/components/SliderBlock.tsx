@@ -21,6 +21,7 @@ const ContainerSlider = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: content-box;
 `;
 
 const ImageDiv = styled.div<{ src: string }>`
@@ -41,11 +42,19 @@ const Slider = styled.div`
       content: '';
       position: absolute;
       background: url(${linesGroup}) no-repeat;
-      bottom: -60px;
-      left: -115px;
+      bottom: -13%;
+      left: -15%;
       background-size: contain;
-      width: 15%;
-      height: 12%;
+      width: 296px;
+      height: 116px;
+    }
+  }
+  @media(max-width: 1250px) {
+    & > ${ImageDiv}:first-child {
+      &:before {
+        content: '';
+        display: none;
+      } 
     }
   }
 `;

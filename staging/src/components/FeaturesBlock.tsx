@@ -51,10 +51,20 @@ export const FeaturesBlock = () => {
 const ContainerFeatures = styled.div`
   padding: 110px 0;
   background-color: #95D6A4;
-  clip-path: polygon(45% 8%, 70% 9%, 100% 0, 100% 100%, 68% 100%, 32% 100%, 0 100%, 0 0);
+  -webkit-clip-path: polygon(56% 6%, 79% 4%, 100% 0, 100% 100%, 92% 100%, 50% 100%, 21% 100%, 0 100%, 0 0, 32% 5%);
+  clip-path: polygon(56% 6%, 79% 4%, 100% 0, 100% 100%, 92% 100%, 50% 100%, 21% 100%, 0 100%, 0 0, 32% 5%);
+  
+  @media(max-width: 1000px) {
+    -webkit-clip-path: polygon(55% 3%, 69% 3%, 100% 0, 100% 100%, 92% 100%, 50% 100%, 21% 100%, 0 100%, 0 0, 33% 2%);
+    clip-path: polygon(55% 3%, 69% 3%, 100% 0, 100% 100%, 92% 100%, 50% 100%, 21% 100%, 0 100%, 0 0, 33% 2%);
+  }
 `;
 
-const ContainerContent = styled.div``;
+const ContainerContent = styled.div`
+  @media(max-width: 1000px) {
+    text-align: center;
+  }
+`;
 
 const TextLabel = styled.div`
   font-weight: 600;
@@ -74,19 +84,29 @@ const FeaturesContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 73px;
+  @media(max-width: 1000px) {
+    flex-direction: column;
+  }
 `;
 
 const ItemFeature = styled.div`
   display: flex;
   flex-basis: 42%;
   margin-bottom: 47px;
+  @media(max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const DescriptionFeature = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 53%;
+  max-width: 66%;
   margin-left: 60px;
+  @media(max-width: 1000px) {
+    margin-left: 0;
+  }
 `;
 
 const DescriptionTitle = styled.p`
