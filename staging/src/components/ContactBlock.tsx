@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import contactImage from '../static/ContactImage.jpg';
+import roundsImage from '../static/RoundsImage.svg';
 
 export const ContactBlock = () => {
   return (
@@ -16,7 +17,10 @@ export const ContactBlock = () => {
                       <ButtonContact>Contact now</ButtonContact>
                   </TextContact>
               </TextContainer>
-              <ImageContainer></ImageContainer>
+              <ContainerImages>
+                  <ImageContainer />
+                  <RoundsImage />
+              </ContainerImages>
           </MainContainer>
       </ContainerContact>
   );
@@ -56,11 +60,31 @@ const MainContainer = styled.div`
 
 const TextContainer = styled.div``;
 
+const ContainerImages = styled.div`
+  width: 50%;
+  height: 41vw;
+  position: relative;
+`;
+
+const RoundsImage = styled.div`
+  background: url(${roundsImage}) no-repeat;
+  width: 50%;
+  height: 71%;
+  position: absolute;
+  left: -27%;
+  top: 15%;
+  z-index: 1;
+  background-size: cover;
+`;
+
 const ImageContainer = styled.div`
- width: 50%;
- height: 41vw;
+ width: 100%;
+ height: 100%;
+  z-index: 2;
  background: url(${contactImage}) no-repeat;
-  background-size: contain;
+  background-size: cover;
+  position: relative;
+  
   @media(max-width: 800px) {
     background-size: cover;
     width: 300px;
