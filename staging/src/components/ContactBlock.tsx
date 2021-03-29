@@ -42,7 +42,7 @@ const ButtonContact = styled.button`
 
 const ContainerContact = styled.div`
  background-color: #000000;
- padding: 76px 0 92px; 
+ padding: 92px 0; 
 `;
 
 const MainContainer = styled.div`
