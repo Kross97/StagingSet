@@ -131,6 +131,9 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
+  @media(max-width: 1000px) {
+    align-items: center;
+  }
 `;
 
 const ButtonNav = styled.a<{ isHeaderFixed: boolean}>`
