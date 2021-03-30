@@ -12,28 +12,31 @@ export const SrectacularBlock = () => {
             <MainContent className={'container'}>
                 <MainText>
                     <p>
-                        <span style={{ marginRight: '15px'}} className={'white'}>What</span>
+                        <span style={{marginRight: '15px'}} className={'white'}>What</span>
                         <span className={'green'}>our spectacular</span>
                     </p>
                     <p>
-                        <span style={{ marginRight: '15px'}} className={'green'}>clients</span>
+                        <span style={{marginRight: '15px'}} className={'green'}>clients</span>
                         <span className={'white'}>have to say</span>
                     </p>
                     <p>About us</p>
                 </MainText>
                 <TextDescriptionContainer>
                     <TextDescription>
-                        “My first venture into Virtual Staging was made so easy by Staging Set. I didn’t know what to expect, and I was so happy with StagingSet’s great communication and willingness to tweak the furniture options to my satisfaction! The pricing is very good too. Overall a good experience that I plan to use for my marketing going forward.”
+                        “My first venture into Virtual Staging was made so easy by Staging Set. I didn’t know what to
+                        expect, and I was so happy with StagingSet’s great communication and willingness to tweak the
+                        furniture options to my satisfaction! The pricing is very good too. Overall a good experience
+                        that I plan to use for my marketing going forward.”
                     </TextDescription>
                     <Author>
                         Joyce Almodova, Honolulu, HI
                     </Author>
-                    <Divider />
+                    <Divider/>
                     <ContainersLogos>
-                        <LogoItem src={airbnb} />
-                        <LogoItem src={logoThree} />
-                        <LogoItem src={fedex} />
-                        <LogoItem src={microsoftLogo} />
+                        <LogoItem src={airbnb}/>
+                        <LogoItem style={{ backgroundPosition: 'center'}} src={logoThree}/>
+                        <LogoItem src={fedex}/>
+                        <LogoItem src={microsoftLogo}/>
                     </ContainersLogos>
                 </TextDescriptionContainer>
             </MainContent>
@@ -75,7 +78,7 @@ const TextDescriptionContainer = styled.div`
   flex-direction: column;
   flex-basis: 50%;
   color: #fff;
-  
+
 `;
 
 const TextDescription = styled.p`
@@ -98,14 +101,14 @@ const Divider = styled.div`
 `;
 
 const ContainersLogos = styled.div`
- display: flex;
- flex-wrap: wrap; 
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const LogoItem = styled.div<{ src: string }>`
- flex-basis: 50%;
+  flex-basis: 50%;
   margin-bottom: 40px;
   height: 64px;
- background: url(${({ src }) => src}) no-repeat;
+  background: url(${({src}) => src}) no-repeat;
   background-size: contain;
 `;

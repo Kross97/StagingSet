@@ -7,7 +7,7 @@ import { ContactBlock } from './components/ContactBlock';
 import { MostProjectsBlock } from './components/MostProjectsBlock';
 import { VirtualStaging } from './components/VirtualStaging';
 import { SrectacularBlock } from './components/SpectacularBlock';
-
+import { OfferingBlock } from './components/OfferingBlock';
 export const App = () => {
   return (
       <>
@@ -19,6 +19,7 @@ export const App = () => {
           <MostProjectsBlock />
           <VirtualStaging />
           <SrectacularBlock />
+          <OfferingBlock />
       </>
   );
 };
