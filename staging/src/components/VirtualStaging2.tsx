@@ -7,7 +7,10 @@ export const VirtualStaging2 = () => {
       <ContainerVirtual>
         <MainContent>
           <TextBlock>
-              <p>Virtual staging is becoming a popular alternative to physical staging.</p>
+              <p>
+                  <p>Virtual staging is becoming a popular</p>
+                  <p><p>alternative to</p><p>physical staging.</p></p>
+              </p>
               <p>77% of real estate agents believe that staging benefits the sale of the property (NAR 2019) and staged homes spend 86% less time on the market compared to vacant properties (RESA).</p>
           </TextBlock>
             <ImageBlock />
@@ -35,7 +38,7 @@ const TextBlock = styled.div`
   font-size: 22px;
   line-height: 150%;
   color: #000;
-  max-width: 43%;
+  max-width: 47%;
   & > p:first-child {
     font-weight: 600;
     font-size: 56px;
@@ -48,6 +51,6 @@ const ImageBlock = styled.div`
  height: 41vw; 
  background: url(${virtualStaging}) no-repeat center;
   flex-grow: 1;
-  margin-left: 90px;
+  margin-left: 10%;
   background-size: contain;
 `;
