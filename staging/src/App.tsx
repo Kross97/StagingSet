@@ -8,6 +8,8 @@ import { MostProjectsBlock } from './components/MostProjectsBlock';
 import { VirtualStaging } from './components/VirtualStaging';
 import { SrectacularBlock } from './components/SpectacularBlock';
 import { OfferingBlock } from './components/OfferingBlock';
+import { VirtualStaging2 } from "./components/VirtualStaging2";
+
 export const App = () => {
   return (
       <>
@@ -20,6 +22,7 @@ export const App = () => {
           <VirtualStaging />
           <SrectacularBlock />
           <OfferingBlock />
+          <VirtualStaging2 />
       </>
   );
 };
