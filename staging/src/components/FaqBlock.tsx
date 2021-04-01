@@ -79,50 +79,27 @@ const OptionsContainer = styled.div``;
 
 const textDescription = keyframes`
   from {
-    left: 0;
-  }
-  
-  10% {
-    left: 10%;
-    transform: scaleY(0.3);
+    transform: scaleY(0);
   }
   
   20% {
-    left: 20%;
-    transform: scaleY(0.6);
-  }
-  
-  30% {
-    left: 30%;
-    transform: scaleY(0.8);
+    transform: scaleY(0.3);
   }
   
   40% {
-    left: 40%;
-    transform: scaleY(1);
-  }
-  
-  50% {
-    left: 50%;
+    transform: scaleY(0.6);
   }
   
   60% {
-   left: 40%;
-  }
-  
-  70% {
-   left: 30%; 
+    transform: scaleY(0.8);
   }
   
   80% {
-   left: 20%; 
+    transform: scaleY(1);
   }
   
-  90% {
-   left: 10%;
-  }
   to {
-    left: 0;
+    transform: scaleY(1);
   }
 `;
 
@@ -135,9 +112,9 @@ const ItemOption = styled.div<{ isClicked: boolean }>`
   margin-bottom: 50px;
   color: #000;
   transition: 0.5s ease-in;
-  position: relative;
+
   background-color: ${({ isClicked }) => isClicked ? '#e5e2e2' : 'inherit' };
-  height: ${({ isClicked }) => isClicked ? '52px' : '26px' };
+  height: ${({ isClicked }) => isClicked ? '65px' : '26px' };
   & > p {
     display: flex;
     flex-direction: column;
@@ -147,9 +124,7 @@ const ItemOption = styled.div<{ isClicked: boolean }>`
     font-size: 22px;
     line-height: 150%;
     color: #a6a4a4;
-    position: absolute;
-    bottom: 0;
-    animation: ${textDescription} 1s ease;
+    animation: ${textDescription} 0.4s ease;
     animation-delay: 0.4s;
     animation-fill-mode: backwards;
     animation-iteration-count: 1;
