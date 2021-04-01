@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import styled, { keyframes } from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 export const FaqBlock = () => {
-    const [isClickedIcons, setIsClickedIcons] = useState<{[key: string]: boolean}>({
+    const [isClickedIcons, setIsClickedIcons] = useState<{ [key: string]: boolean }>({
         one: false,
         two: false,
         three: false,
@@ -18,37 +18,52 @@ export const FaqBlock = () => {
                     <ItemOption isClicked={isClickedIcons['one']}>
                         <p>
                             <span>How Many Photos Should I Stage?</span>
-                            {isClickedIcons['one'] && <span>We can have your order completed within 24-72 hours.</span>}
                         </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, one: !isClickedIcons['one']})} isClicked={isClickedIcons['one']} />
+                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, one: !isClickedIcons['one']})}
+                              isClicked={isClickedIcons['one']}/>
+                        {isClickedIcons['one'] && <TextOptionDescription>
+                            <span>We can have your order completed within 24-72 hours.</span>
+                        </TextOptionDescription>}
                     </ItemOption>
                     <ItemOption isClicked={isClickedIcons['two']}>
                         <p>
                             <span>Is It Possible To Remove Existing Furniture?</span>
-                            {isClickedIcons['two'] && <span>We can have your order completed within 24-72 hours.</span>}
                         </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, two: !isClickedIcons['two']})} isClicked={isClickedIcons['two']} />
+                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, two: !isClickedIcons['two']})}
+                              isClicked={isClickedIcons['two']}/>
+                        {isClickedIcons['two'] && <TextOptionDescription>
+                            <span>We can have your order completed within 24-72 hours.</span>
+                        </TextOptionDescription>}
                     </ItemOption>
                     <ItemOption isClicked={isClickedIcons['three']}>
                         <p>
                             <span>Are Revisions Allowed?</span>
-                            {isClickedIcons['three'] && <span>We can have your order completed within 24-72 hours.</span>}
                         </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, three: !isClickedIcons['three']})} isClicked={isClickedIcons['three']} />
+                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, three: !isClickedIcons['three']})}
+                              isClicked={isClickedIcons['three']}/>
+                        {isClickedIcons['three'] && <TextOptionDescription>
+                            <span>We can have your order completed within 24-72 hours.</span>
+                        </TextOptionDescription>}
                     </ItemOption>
                     <ItemOption isClicked={isClickedIcons['four']}>
                         <p>
                             <span>How Long Does The Process Take?</span>
-                            {isClickedIcons['four'] && <span>We can have your order completed within 24-72 hours.</span>}
                         </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, four: !isClickedIcons['four']})} isClicked={isClickedIcons['four']} />
+                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, four: !isClickedIcons['four']})}
+                              isClicked={isClickedIcons['four']}/>
+                        {isClickedIcons['four'] && <TextOptionDescription>
+                            <span>We can have your order completed within 24-72 hours.</span>
+                        </TextOptionDescription>}
                     </ItemOption>
                     <ItemOption isClicked={isClickedIcons['five']}>
                         <p>
                             <span>Пасхалка для Санька</span>
-                            {isClickedIcons['five'] && <span>ТЫ ПИДОР!</span>}
                         </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, five: !isClickedIcons['five']})} isClicked={isClickedIcons['five']} />
+                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, five: !isClickedIcons['five']})}
+                              isClicked={isClickedIcons['five']}/>
+                        {isClickedIcons['five'] && <TextOptionDescription>
+                            <span>ТЫ ПИДОР!</span>
+                        </TextOptionDescription>}
                     </ItemOption>
                 </OptionsContainer>
             </MainContent>
@@ -77,32 +92,6 @@ const TextFaq = styled.p`
 const OptionsContainer = styled.div``;
 
 
-const textDescription = keyframes`
-  from {
-    transform: scaleY(0);
-  }
-  
-  20% {
-    transform: scaleY(0.3);
-  }
-  
-  40% {
-    transform: scaleY(0.6);
-  }
-  
-  60% {
-    transform: scaleY(0.8);
-  }
-  
-  80% {
-    transform: scaleY(1);
-  }
-  
-  to {
-    transform: scaleY(1);
-  }
-`;
-
 const ItemOption = styled.div<{ isClicked: boolean }>`
   display: flex;
   justify-content: space-between;
@@ -112,25 +101,96 @@ const ItemOption = styled.div<{ isClicked: boolean }>`
   margin-bottom: 50px;
   color: #000;
   transition: 0.5s ease-in;
+  flex-wrap: wrap;
+  background-color: ${({isClicked}) => isClicked ? '#e5e2e2' : 'inherit'};
+  height: ${({isClicked}) => isClicked ? '65px' : '26px'};
 
-  background-color: ${({ isClicked }) => isClicked ? '#e5e2e2' : 'inherit' };
-  height: ${({ isClicked }) => isClicked ? '65px' : '26px' };
   & > p {
     display: flex;
     flex-direction: column;
   }
-  & > p > span:nth-of-type(2) {
-    font-weight: 300;
-    font-size: 22px;
-    line-height: 150%;
-    color: #a6a4a4;
-    animation: ${textDescription} 0.4s ease;
-    animation-delay: 0.4s;
-    animation-fill-mode: backwards;
-    animation-iteration-count: 1;
+`;
+
+const textDescription = keyframes`
+  from {
+    transform: scaleY(0);
+  }
+
+  20% {
+    transform: scaleY(0.3);
+  }
+
+  40% {
+    transform: scaleY(0.6);
+  }
+
+  60% {
+    transform: scaleY(0.8);
+  }
+
+  80% {
+    transform: scaleY(1);
+  }
+
+  to {
+    transform: scaleY(1);
   }
 `;
 
+
+const textDecsBlock = keyframes`
+  from {
+    justify-content: flex-start;
+  }
+
+  15% {
+    justify-content: flex-start;
+  }
+
+  25% {
+    justify-content: center;
+  }
+
+  35% {
+    justify-content: center;
+  }
+
+  50% {
+    justify-content: flex-end;
+  }
+
+  65% {
+    justify-content: flex-end;
+  }
+
+  75% {
+    justify-content: center;
+  }
+
+  to {
+    justify-content: flex-start;
+  }
+`;
+
+const TextOptionDescription = styled.div`
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 150%;
+  color: #a6a4a4;
+  display: flex;
+  width: 100%;
+  animation: ${textDecsBlock} 0.8s ease;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+
+  & > span {
+    animation: ${textDescription} 0.8s ease;
+    animation-delay: 0.4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+  }
+`;
 
 
 const Icon = styled.div<{ isClicked: boolean }>`
@@ -139,8 +199,8 @@ const Icon = styled.div<{ isClicked: boolean }>`
   position: relative;
   cursor: pointer;
   transition: 0.2s ease;
-  transform: ${({ isClicked }) => isClicked && 'rotate(-405deg)'};
-  
+  transform: ${({isClicked}) => isClicked && 'rotate(-405deg)'};
+
   &:before {
     content: '';
     border-right: 2px solid #a6a4a4;
@@ -156,5 +216,5 @@ const Icon = styled.div<{ isClicked: boolean }>`
     position: absolute;
     top: 49%;
   }
-  
+
 `;
