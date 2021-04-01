@@ -10,6 +10,7 @@ import { SrectacularBlock } from './components/SpectacularBlock';
 import { OfferingBlock } from './components/OfferingBlock';
 import { VirtualStaging2 } from "./components/VirtualStaging2";
 import { DigitalHome } from "./components/DigitalHome";
+import { FaqBlock } from "./components/FaqBlock";
 
 export const App = () => {
   return (
@@ -25,6 +26,7 @@ export const App = () => {
           <OfferingBlock />
           <VirtualStaging2 />
           <DigitalHome />
+          <FaqBlock />
       </>
   );
 };
