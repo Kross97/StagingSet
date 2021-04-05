@@ -15,55 +15,49 @@ export const FaqBlock = () => {
             <MainContent className={'container'}>
                 <TextFaq>FAQ</TextFaq>
                 <OptionsContainer>
-                    <ItemOption isClicked={isClickedIcons['one']}>
-                        <p>
-                            <span>How Many Photos Should I Stage?</span>
-                        </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, one: !isClickedIcons['one']})}
-                              isClicked={isClickedIcons['one']}/>
-                        {isClickedIcons['one'] && <TextOptionDescription>
+                    <ItemOption>
+                        <summary>
+                            <p>
+                                <span>How Many Photos Should I Stage?</span>
+                            </p>
+                            <Icon />
+                        </summary>
+                        <TextOptionDescription>
                             <span>We can have your order completed within 24-72 hours.</span>
-                        </TextOptionDescription>}
+                        </TextOptionDescription>
                     </ItemOption>
-                    <ItemOption isClicked={isClickedIcons['two']}>
-                        <p>
-                            <span>Is It Possible To Remove Existing Furniture?</span>
-                        </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, two: !isClickedIcons['two']})}
-                              isClicked={isClickedIcons['two']}/>
-                        {isClickedIcons['two'] && <TextOptionDescription>
+                    <ItemOption>
+                        <summary>
+                            <p>
+                                <span>Is It Possible To Remove Existing Furniture?</span>
+                            </p>
+                            <Icon />
+                        </summary>
+                        <TextOptionDescription>
                             <span>We can have your order completed within 24-72 hours.</span>
-                        </TextOptionDescription>}
+                        </TextOptionDescription>
                     </ItemOption>
-                    <ItemOption isClicked={isClickedIcons['three']}>
-                        <p>
-                            <span>Are Revisions Allowed?</span>
-                        </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, three: !isClickedIcons['three']})}
-                              isClicked={isClickedIcons['three']}/>
-                        {isClickedIcons['three'] && <TextOptionDescription>
+                    <ItemOption>
+                        <summary>
+                            <p>
+                                <span>Are Revisions Allowed?</span>
+                            </p>
+                            <Icon />
+                        </summary>
+                        <TextOptionDescription>
                             <span>We can have your order completed within 24-72 hours.</span>
-                        </TextOptionDescription>}
+                        </TextOptionDescription>
                     </ItemOption>
-                    <ItemOption isClicked={isClickedIcons['four']}>
-                        <p>
-                            <span>How Long Does The Process Take?</span>
-                        </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, four: !isClickedIcons['four']})}
-                              isClicked={isClickedIcons['four']}/>
-                        {isClickedIcons['four'] && <TextOptionDescription>
+                    <ItemOption>
+                        <summary>
+                            <p>
+                                <span>How Long Does The Process Take?</span>
+                            </p>
+                            <Icon />
+                        </summary>
+                        <TextOptionDescription>
                             <span>We can have your order completed within 24-72 hours.</span>
-                        </TextOptionDescription>}
-                    </ItemOption>
-                    <ItemOption isClicked={isClickedIcons['five']}>
-                        <p>
-                            <span>Пасхалка для Санька</span>
-                        </p>
-                        <Icon onClick={() => setIsClickedIcons({...isClickedIcons, five: !isClickedIcons['five']})}
-                              isClicked={isClickedIcons['five']}/>
-                        {isClickedIcons['five'] && <TextOptionDescription>
-                            <span>ТЫ ПИДОР!</span>
-                        </TextOptionDescription>}
+                        </TextOptionDescription>
                     </ItemOption>
                 </OptionsContainer>
             </MainContent>
@@ -92,7 +86,7 @@ const TextFaq = styled.p`
 const OptionsContainer = styled.div``;
 
 
-const ItemOption = styled.div<{ isClicked: boolean }>`
+const ItemOption = styled.details`
   display: flex;
   justify-content: space-between;
   font-weight: 500;
@@ -102,9 +96,26 @@ const ItemOption = styled.div<{ isClicked: boolean }>`
   color: #000;
   transition: 0.5s ease-in;
   flex-wrap: wrap;
-  background-color: ${({isClicked}) => isClicked ? '#e5e2e2' : 'inherit'};
-  height: ${({isClicked}) => isClicked ? '65px' : '26px'};
-
+  
+  &[open] {
+    background-color: #e9e7e7;
+  }
+  
+  & summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+  }
+  
+  &[open] summary {
+    background-color: #e9e7e7;
+    & > div {
+      transform: rotate(-405deg);
+    }
+  }
+  
   & > p {
     display: flex;
     flex-direction: column;
@@ -137,41 +148,6 @@ const textDescription = keyframes`
   }
 `;
 
-
-const textDecsBlock = keyframes`
-  from {
-    justify-content: flex-start;
-  }
-
-  15% {
-    justify-content: flex-start;
-  }
-
-  25% {
-    justify-content: center;
-  }
-
-  35% {
-    justify-content: center;
-  }
-
-  50% {
-    justify-content: flex-end;
-  }
-
-  65% {
-    justify-content: flex-end;
-  }
-
-  75% {
-    justify-content: center;
-  }
-
-  to {
-    justify-content: flex-start;
-  }
-`;
-
 const TextOptionDescription = styled.div`
   font-weight: 300;
   font-size: 22px;
@@ -179,10 +155,6 @@ const TextOptionDescription = styled.div`
   color: #a6a4a4;
   display: flex;
   width: 100%;
-  animation: ${textDecsBlock} 0.8s ease;
-  animation-delay: 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: backwards;
 
   & > span {
     animation: ${textDescription} 0.8s ease;
@@ -193,13 +165,12 @@ const TextOptionDescription = styled.div`
 `;
 
 
-const Icon = styled.div<{ isClicked: boolean }>`
+const Icon = styled.div`
   width: 21px;
   height: 21px;
   position: relative;
   cursor: pointer;
   transition: 0.2s ease;
-  transform: ${({isClicked}) => isClicked && 'rotate(-405deg)'};
 
   &:before {
     content: '';
