@@ -60,17 +60,17 @@ export const InspiriesBlock = () => {
 
     return (
         <ContainerInspiries className={'container'}>
-            <input onChange={changed} type={"text"} name={"first"}/>
+            {/*<input onChange={changed} type={"text"} name={"first"}/>
             <input onChange={changed2} type={"text"} name={"first"}/>
             <input onChange={changed3} type={"text"} name={"first"}/>
-            <input onChange={changed4} type={"text"} name={"first"}/>
+            <input onChange={changed4} type={"text"} name={"first"}/>*/}
             <TextContainer>
                 <TextAbout>About us</TextAbout>
                 <InspiriesTextContainer>
-                    <p>{text}</p>
+                    {/*<p>{text}</p>
                     <p>{text2}</p>
                     <p>{text3}</p>
-                    <p>{text4}</p>
+                    <p>{text4}</p>*/}
                     <p>Inspires buyers</p>
                 </InspiriesTextContainer>
             </TextContainer>
